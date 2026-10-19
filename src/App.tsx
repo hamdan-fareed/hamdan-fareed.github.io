@@ -1,3 +1,7 @@
+/**
+ * Hamdan - Personal Identity & Directory
+ * Clean typography without body logo, tab favicon only.
+ */
 import React, { useState, useEffect, useRef } from 'react';
 import { PixelCurtain } from './PixelCurtain';
 import { MagneticCursor } from './MagneticCursor';
@@ -111,7 +115,6 @@ export default function App() {
   const [activeScreen, setActiveScreen] = useState<ScreenType>('home');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const pendingScreenRef = useRef<ScreenType | null>(null);
-  const logoRef = useRef<HTMLDivElement | null>(null);
   const wordmarkRef = useRef<HTMLHeadingElement | null>(null);
   const subtitleRef = useRef<HTMLParagraphElement | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -245,20 +248,6 @@ export default function App() {
         {/* Central Identity Container */}
       <div className={`relative z-10 w-full max-w-md flex flex-col items-center text-center transition-all duration-300 ${isTransitioning ? 'opacity-75 scale-[0.99] filter contrast-125' : 'opacity-100 scale-100'}`}>
         
-        {/* Monogram Logo Mark */}
-        <div 
-          ref={logoRef}
-          onClick={() => setScrambleKey(k => k + 1)}
-          className="mb-5 inline-flex items-center justify-center cursor-pointer select-none magnetic-wordmark"
-          title="Click to re-scramble"
-        >
-          <img 
-            src="./logo.svg" 
-            alt="Hamdan H Logo" 
-            className="w-8 h-8 sm:w-9 sm:h-9 object-contain" 
-          />
-        </div>
-
         {/* Main Pixel Title with center-stagger scramble and magnetic target */}
         <h1 
           ref={wordmarkRef}
@@ -386,8 +375,8 @@ export default function App() {
         duration={720}
       />
 
-      {/* iPadOS-style Magnetic Cursor & Snap on logo, Hamdan wordmark, and subtitle */}
-      <MagneticCursor targetRefs={[logoRef, wordmarkRef, subtitleRef]} />
+      {/* iPadOS-style Magnetic Cursor & Snap on Hamdan wordmark and subtitle */}
+      <MagneticCursor targetRefs={[wordmarkRef, subtitleRef]} />
     </main>
   );
 }
