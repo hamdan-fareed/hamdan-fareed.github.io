@@ -231,7 +231,7 @@ export default function App() {
     if (activeScreen === 'blog') {
       return 'blog';
     }
-    return 'trying to build';
+    return 'attempting to learn';
   };
 
   // Optical center of the 7-item link list (index 3 is "books")
