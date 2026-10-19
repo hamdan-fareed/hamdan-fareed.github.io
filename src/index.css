@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-pixel {
+    font-family: 'Silkscreen', 'Pixelify Sans', 'VT323', monospace;
+    image-rendering: pixelated;
+    letter-spacing: -0.02em;
+  }
+  .font-mono-clean {
+    font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+@keyframes pixel-grain-drift {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 3px); }
+  40% { transform: translate(-3px, -2px); }
+  60% { transform: translate(3px, 1px); }
+  80% { transform: translate(1px, -3px); }
+  100% { transform: translate(0, 0); }
+}
+
+.pixel-grain-layer {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  image-rendering: pixelated;
+  animation: pixel-grain-drift 3.5s steps(8) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-grain-layer {
+    animation: none;
+  }
+}
+
+@keyframes tile-flip-in {
+  0% {
+    transform: perspective(700px) rotateX(-90deg);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(700px) rotateX(0deg);
+    opacity: 1;
+    transform-origin: top center;
+  }
+}
+
+@keyframes tile-flip-out {
+  0% {
+    transform: perspective(700px) rotateX(0deg);
+    opacity: 1;
+    transform-origin: bottom center;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(700px) rotateX(90deg);
+    opacity: 0;
+    transform-origin: bottom center;
+  }
+}
+
+/* Ensure smooth crisp text and perfect viewport rendering */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* iPadOS Magnetic Cursor Styles for pointer devices */
+@media (pointer: fine) {
+  html.custom-magnetic-cursor-active,
+  html.custom-magnetic-cursor-active body,
+  html.custom-magnetic-cursor-active button,
+  html.custom-magnetic-cursor-active a {
+    cursor: none !important;
+  }
+}
+
+.magnetic-wordmark {
+  display: inline-block;
+  transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0) scale(var(--mag-scale, 1));
+  will-change: transform;
+}
+
