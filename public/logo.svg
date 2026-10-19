@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%">
+  <!-- Hamdan H Monogram Logo -->
+  <g fill="#0a0a0a">
+    <!-- Left vertical rounded stem -->
+    <rect x="66" y="52" width="36" height="152" rx="18" />
+    <!-- Right vertical rounded stem -->
+    <rect x="154" y="52" width="36" height="152" rx="18" />
+    <!-- Horizontal connecting bar -->
+    <rect x="84" y="114" width="88" height="28" />
+  </g>
+</svg>
