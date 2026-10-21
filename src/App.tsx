@@ -109,7 +109,7 @@ function ScrambleText({
   return <span className={className}>{displayText}</span>;
 }
 
-type ScreenType = 'home' | 'docs' | 'ayah-detect' | 'blog';
+type ScreenType = 'home' | 'docs' | 'blog';
 
 export default function App() {
   const [activeScreen, setActiveScreen] = useState<ScreenType>('home');
@@ -180,8 +180,8 @@ export default function App() {
     {
       id: 'ayah-detect',
       label: 'Ayah detect',
-      isComingSoon: true,
-      comingSoonTitle: 'ayah detect',
+      href: 'https://forms.gle/nprHdgrgTSHG2i22A',
+      isExternal: true,
     },
   ];
 
@@ -222,9 +222,6 @@ export default function App() {
   };
 
   const getActiveSubtitle = () => {
-    if (activeScreen === 'ayah-detect') {
-      return 'ayah detect';
-    }
     if (activeScreen === 'docs') {
       return 'documentation';
     }
