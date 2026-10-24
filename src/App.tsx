@@ -178,6 +178,12 @@ export default function App() {
       isExternal: true,
     },
     {
+      id: 'spaceship',
+      label: 'Spaceship',
+      href: 'https://hamdan-fareed.github.io/spaceship/',
+      isExternal: true,
+    },
+    {
       id: 'ayah-detect',
       label: 'Ayah detect',
       href: 'https://forms.gle/nprHdgrgTSHG2i22A',
