@@ -166,6 +166,12 @@ export default function App() {
       isExternal: true,
     },
     {
+      id: 'awqat',
+      label: 'Awqat',
+      href: 'https://github.com/hamdan-fareed/Awqat',
+      isExternal: true,
+    },
+    {
       id: 'github',
       label: 'GitHub',
       href: 'https://github.com/hamdan-fareed',
