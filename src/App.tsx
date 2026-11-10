@@ -192,7 +192,7 @@ export default function App() {
     {
       id: 'ayah-detect',
       label: 'Ayah detect',
-      href: 'https://forms.gle/nprHdgrgTSHG2i22A',
+      href: 'https://hamdan-fareed.github.io/ayah-detect-website/',
       isExternal: true,
     },
   ];
